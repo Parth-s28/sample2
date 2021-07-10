@@ -9,6 +9,18 @@ const path = require('path');
 const sessionId = uuid.v4();
 require("dotenv").config();
 
+
+
+const privateKey = process.env.DIALOGFLOW_PRIVATE_KEY;
+const email = process.env.DIALOGFLOW_EMAIL;
+let config = {
+	credentials: {
+		private_key:privateKey,
+	   client_email:email
+	} 
+	
+}
+
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
 var port = process.env.PORT || 8080;
@@ -61,9 +73,7 @@ app.post('/send-msg', (req, res)=> {
 	
   
 	// Create a new session
-	const sessionClient = new dialogflow.SessionsClient({
-		keyFilename: "config/auth.json"
-	});
+	const sessionClient = new dialogflow.SessionsClient(config);
 	const sessionPath = sessionClient.projectAgentSessionPath(
 	  projectId,
 	  sessionId
