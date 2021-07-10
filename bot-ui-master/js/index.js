@@ -73,13 +73,13 @@ function serverMessage(response2) {
   if ($('.message-input').val() != '') {
     return false;
   }
-  $('<div class="message loading new"><figure class="avatar"><img src="/css/food1.png" /></figure><span></span></div>').appendTo($('.mCSB_container'));
+  $('<div class="message loading new"><figure class="avatar"><img src="css/food1.png" /></figure><span></span></div>').appendTo($('.mCSB_container'));
   updateScrollbar();
   
 
   setTimeout(function() {
     $('.message.loading').remove();
-    $('<div class="message new"><figure class="avatar"><img src="/css/food1.png" /></figure>' + response2 + '</div>').appendTo($('.mCSB_container')).addClass('new');
+    $('<div class="message new"><figure class="avatar"><img src="css/food1.png" /></figure>' + response2 + '</div>').appendTo($('.mCSB_container')).addClass('new');
     updateScrollbar();
   }, 100 + (Math.random() * 20) * 100);
 
@@ -88,7 +88,7 @@ function serverMessage(response2) {
 
 function fetchmsg(){
 
-     var url = 'https://her-node-static.herokuapp.com//send-msg';
+     var url = 'https://her-node-static.herokuapp.com/send-msg';
       
       const data = new URLSearchParams();
       for (const pair of new FormData(document.getElementById("mymsg"))) {
