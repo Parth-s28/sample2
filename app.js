@@ -55,10 +55,6 @@ app.use(function (req, res, next) {
     next();
   });
 
-app.get('/send-msg', (req, res)=>{
-	console.log("Calling send message");
-})
-
 app.post('/send-msg', (req, res)=> {
     
     runSample(req.body.MSG).then(data=>{
