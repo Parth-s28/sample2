@@ -11,12 +11,12 @@ require("dotenv").config();
 
 
 
-const privateKey = JSON.parse(process.env.DIALOGFLOW_PRIVATE_KEY);
+const privateKey = JSON.parse(process.env.DIALOGFLOW_PRIVATE_KEY).replace(/\\n/g, '\n');
 const email = process.env.DIALOGFLOW_EMAIL;
 let config = {
 	credentials: {
 		private_key:privateKey,
-	   client_email:email
+	        client_email:email
 	} 
 	
 }
